@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class PlayerController : MonoBehaviour
         Running,
         Jumping,
         Falling,
+        Hurt,
     }
     
     private Rigidbody2D rb;
     private Animator anim;
     private State state = State.Idle;
     private Collider2D collider;
+    private SpriteRenderer sprite;
     
     [SerializeField]
     public int cherries = 0;
@@ -34,6 +37,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] 
     private float jumpHeight = 20f;
+    
+    [SerializeField] 
+    private float hurtForce = 800f;
+    
+    
 
     private void Start()
     {
@@ -41,12 +49,16 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
         cherriesCount.text = cherries.ToString();
+        sprite = GetComponent<SpriteRenderer>();
 
     }
 
     private void Update()
     {
-        Movement();
+        if (state != State.Hurt)
+        {
+            Movement();
+        }
         AnimationStates();
         anim.SetInteger("state", (int)state);
 
@@ -63,6 +75,53 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            print("Encostou no inimigo");
+            if (state == State.Falling)
+            {
+                print("matou");
+                Destroy(other.gameObject);
+                Jump();
+            }
+            else
+            {
+                print("vai doer");
+                StartCoroutine(HurtCoroutine(other));
+            }
+        }
+    }
+
+    private IEnumerator HurtCoroutine(Collision2D other)
+    {
+        state = State.Hurt;
+        if (other.gameObject.transform.position.x > transform.position.x)
+        {
+            //enemy is to the right, so  take damage and move left
+            rb.velocity = (new Vector2(-hurtForce,hurtForce/2));
+        }
+        else
+        {
+            //enemy is to the left, so  take damage and move right
+            rb.velocity = (new Vector2(hurtForce,hurtForce/2));
+                    
+        }
+
+        yield return new WaitForSeconds(.2f);
+
+        while (Mathf.Abs(rb.velocity.magnitude) > 1f)
+        {
+            sprite.color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(.01f);
+            sprite.color = new Color(1, 1, 1, 1);
+            yield return new WaitForEndOfFrame();
+
+        }
+
+        state = State.Idle;
+    }
     private void Movement()
     {
         float hDirection = Input.GetAxis("Horizontal");
@@ -86,16 +145,18 @@ public class PlayerController : MonoBehaviour
       
         if (Input.GetButtonDown("Jump") && collider.IsTouchingLayers(groundLayer))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
-            state = State.Jumping;
+            Jump();
         }
-        
-        print(rb.velocity.magnitude);
-
         if (rb.velocity.magnitude < 2f)
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity= new Vector2(0, rb.velocity.y);
         }
+    }
+
+    private void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+        state = State.Jumping;
     }
 
     private void AnimationStates()
@@ -113,6 +174,10 @@ public class PlayerController : MonoBehaviour
             {
                 state = State.Idle; 
             }
+        }
+        else if (state == State.Hurt)
+        {
+            //tá na corrotina
         }
         else if (!Mathf.Approximately(Mathf.Abs(rb.velocity.x),0f))
         {
