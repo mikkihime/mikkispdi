@@ -79,11 +79,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
             print("Encostou no inimigo");
             if (state == State.Falling)
             {
                 print("matou");
-                Destroy(other.gameObject);
+                enemy.Die();
                 Jump();
             }
             else
