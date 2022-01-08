@@ -17,11 +17,23 @@ public class PlayerController : MonoBehaviour
         Hurt,
     }
     
+    private enum Sfx
+    {
+        Footstep,
+        Jump,
+        Hurt,
+        Kill,
+        Coin,
+    }
+    
     private Rigidbody2D rb;
     private Animator anim;
     private State state = State.Idle;
     private Collider2D collider;
     private SpriteRenderer sprite;
+    private Sfx soundEffect;
+    private AudioSource playerAudio;
+    
     
     [SerializeField]
     public int cherries = 0;
@@ -40,6 +52,9 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] 
     private float hurtForce = 800f;
+
+    [SerializeField] 
+    private AudioClip[] sounds;
     
     
 
@@ -50,6 +65,7 @@ public class PlayerController : MonoBehaviour
         collider = GetComponent<Collider2D>();
         cherriesCount.text = cherries.ToString();
         sprite = GetComponent<SpriteRenderer>();
+        playerAudio = GetComponent<AudioSource>();
 
     }
 
@@ -71,6 +87,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             cherries += 1;
             cherriesCount.text = cherries.ToString();
+            SoundFx(Sfx.Coin);
         }
         
     }
@@ -84,12 +101,14 @@ public class PlayerController : MonoBehaviour
             if (state == State.Falling)
             {
                 print("matou");
+                SoundFx(Sfx.Kill);
                 enemy.Die();
                 Jump();
             }
             else
             {
                 print("vai doer");
+                SoundFx(Sfx.Hurt);
                 StartCoroutine(HurtCoroutine(other));
             }
         }
@@ -146,6 +165,7 @@ public class PlayerController : MonoBehaviour
       
         if (Input.GetButtonDown("Jump") && collider.IsTouchingLayers(groundLayer))
         {
+            SoundFx(Sfx.Jump);
             Jump();
         }
         if (rb.velocity.magnitude < 2f)
@@ -158,6 +178,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         state = State.Jumping;
+        
     }
 
     private void AnimationStates()
@@ -189,5 +210,34 @@ public class PlayerController : MonoBehaviour
             state = State.Idle;
         }
         
+    }
+
+    private void SoundFx(Sfx sound)
+    {
+        switch (sound)
+        {
+            case Sfx.Footstep:
+                playerAudio.clip = sounds[0];
+                playerAudio.Play();
+                break;
+            case Sfx.Jump:
+                playerAudio.clip = sounds[1];
+                playerAudio.Play();
+                break;
+            case Sfx.Coin:
+                playerAudio.clip = sounds[2];
+                playerAudio.Play();
+                break;
+            case Sfx.Hurt:
+                playerAudio.clip = sounds[3];
+                playerAudio.Play();
+                break;
+            case Sfx.Kill:
+                playerAudio.clip = sounds[4];
+                playerAudio.Play();
+                break;
+            default:
+                return;
+        }
     }
 }
