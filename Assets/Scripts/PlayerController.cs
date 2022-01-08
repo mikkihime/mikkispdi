@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -17,7 +19,7 @@ public class PlayerController : MonoBehaviour
         Hurt,
     }
     
-    private enum Sfx
+    public enum Sfx
     {
         Footstep,
         Jump,
@@ -33,13 +35,20 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Sfx soundEffect;
     private AudioSource playerAudio;
-    
+    private int lives = 3;
+    private Vector2 initSpawn;
     
     [SerializeField]
     public int cherries = 0;
+    
+   
+
 
     [SerializeField] 
     private Text cherriesCount;
+    
+    [SerializeField] 
+    private Text livesCount;
     
     [SerializeField] 
     private LayerMask groundLayer;
@@ -64,8 +73,10 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
         cherriesCount.text = cherries.ToString();
+        livesCount.text = lives.ToString();
         sprite = GetComponent<SpriteRenderer>();
         playerAudio = GetComponent<AudioSource>();
+        initSpawn = GetComponent<Rigidbody2D>().transform.position;
 
     }
 
@@ -77,6 +88,7 @@ public class PlayerController : MonoBehaviour
         }
         AnimationStates();
         anim.SetInteger("state", (int)state);
+        
 
     }
 
@@ -108,6 +120,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 print("vai doer");
+                HandleHealth();
                 SoundFx(Sfx.Hurt);
                 StartCoroutine(HurtCoroutine(other));
             }
@@ -212,7 +225,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void SoundFx(Sfx sound)
+    public void SoundFx(Sfx sound)
     {
         switch (sound)
         {
@@ -240,4 +253,29 @@ public class PlayerController : MonoBehaviour
                 return;
         }
     }
+
+    public void HandleHealth()
+    {
+        lives--;
+        livesCount.text = lives.ToString();
+        if (lives == 0)
+        {
+            SceneManager.LoadScene("YouDied");
+        }
+
+        Debug.Log("Vidas - HandleHealth: " + lives.ToString());
+    }
+
+    public void HandleFall()
+    {
+        lives--;
+        livesCount.text = lives.ToString();
+        if (lives == 0)
+        {
+            SceneManager.LoadScene("YouDied");
+        }
+        rb.transform.position = initSpawn;
+    }
+
+    
 }
