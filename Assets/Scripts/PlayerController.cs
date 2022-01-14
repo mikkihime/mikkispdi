@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField]
     public int cherries = 0;
-    
-   
+
+    [SerializeField] 
+    private Collider2D feetCollider;
 
 
     [SerializeField] 
@@ -176,7 +177,7 @@ public class PlayerController : MonoBehaviour
         }
         
       
-        if (Input.GetButtonDown("Jump") && collider.IsTouchingLayers(groundLayer))
+        if (Input.GetButtonDown("Jump") && feetCollider.IsTouchingLayers(groundLayer))
         {
             SoundFx(Sfx.Jump);
             Jump();

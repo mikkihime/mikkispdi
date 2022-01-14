@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         rb.velocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Static;
+        collider.enabled = false;
         rb.gravityScale = 0;
         anim.SetTrigger("Death");
     }
