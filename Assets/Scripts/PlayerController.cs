@@ -32,11 +32,14 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private State state = State.Idle;
     private Collider2D collider;
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
     private Sfx soundEffect;
     private AudioSource playerAudio;
     private int lives = 3;
     private Vector2 initSpawn;
+    public bool gemActive = false;
+
+    public float playerScale = 1f;
     
     [SerializeField]
     public int cherries = 0;
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
     private LayerMask groundLayer;
 
     [SerializeField] 
-    private float runningSpeed = 5f;
+    public float runningSpeed = 5f;
 
     [SerializeField] 
     private float jumpHeight = 20f;
@@ -111,13 +114,15 @@ public class PlayerController : MonoBehaviour
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             print("Encostou no inimigo");
-            if (state == State.Falling)
+            if (state == State.Falling || gemActive)
             {
                 print("matou");
                 SoundFx(Sfx.Kill);
                 enemy.Die();
-                Jump();
+                if (!gemActive)
+                    Jump(); 
             }
+            
             else
             {
                 print("vai doer");
@@ -168,12 +173,12 @@ public class PlayerController : MonoBehaviour
         else if (hDirection < 0)
         {
             rb.velocity = new Vector2(-runningSpeed, rb.velocity.y );
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-playerScale, playerScale);
         }
         else 
         {
             rb.velocity = new Vector2(runningSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(playerScale, playerScale);
         }
         
       
