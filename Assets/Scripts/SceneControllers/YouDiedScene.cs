@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace SceneControllers
 {
-    public class YouDiedScene : MonoBehaviour
+    public class YouDiedScene : SceneLoaderScript
     {
 
         [field: SerializeField]
@@ -14,6 +16,15 @@ namespace SceneControllers
     
         [field: SerializeField]
         private Button QuitGameButton { get; set; }
+
+        private void Awake()
+        {
+            MainMenuButton.onClick.AddListener(MainMenu);
+            RestartLevelButton.onClick.AddListener(PlayLevel);
+            QuitGameButton.onClick.AddListener(QuitGame);
+        }
+
+        
     }
 }
 
