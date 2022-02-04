@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoaderScript : MonoBehaviour
 {
-    protected void PlayLevel()
+    protected void PlayLevel(string level)
     {
         Debug.Log("Level");
 
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene(level);
     }
+    
 
     protected void MainMenu()
     {

@@ -5,21 +5,19 @@ using UnityEngine.UI;
 
 namespace SceneControllers
 {
-    public class MainMenuScene : SceneLoaderScript
+    public class Level02 : SceneLoaderScript
     {
-        
         [field: SerializeField]
-        private Button StartGameButton { get; set; }
-        
+        private Button MainMenuButton { get; set; }
+    
         [field: SerializeField]
         private Button QuitGameButton { get; set; }
 
         private void Awake()
         {
-            StartGameButton.onClick.AddListener(() => PlayLevel("Level01"));
-
+            MainMenuButton.onClick.AddListener(MainMenu);
             QuitGameButton.onClick.AddListener(QuitGame);
         }
-
     }
 }
+

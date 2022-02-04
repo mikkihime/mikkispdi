@@ -20,7 +20,7 @@ namespace SceneControllers
         private void Awake()
         {
             MainMenuButton.onClick.AddListener(MainMenu);
-            RestartLevelButton.onClick.AddListener(PlayLevel);
+            RestartLevelButton.onClick.AddListener(() => PlayLevel("Level01"));
             QuitGameButton.onClick.AddListener(QuitGame);
         }
 
