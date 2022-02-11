@@ -33,8 +33,8 @@ namespace PlayerScripts
         public SpriteRenderer sprite;
         private Sfx soundEffect;
         private AudioSource playerAudio;
-        private int lives = 3;
-        private Vector2 initSpawn;
+        public int lives = 3;
+        public Vector2 initSpawn;
         public bool gemActive = false;
 
         public float playerScale = 1f;
@@ -124,7 +124,7 @@ namespace PlayerScripts
                 else
                 {
                     print("vai doer");
-                    HandleHealth();
+                    HandleHealth(false);
                     SoundFx(Sfx.Hurt);
                     StartCoroutine(HurtCoroutine(other));
                 }
@@ -222,6 +222,10 @@ namespace PlayerScripts
             {
                 state = State.Running;
             }
+            else if ( rb.velocity.y < .1f)
+            {
+                state = State.Falling;
+            }
             else
             {
                 state = State.Idle;
@@ -258,16 +262,18 @@ namespace PlayerScripts
             }
         }
 
-        public void HandleHealth()
+        public void HandleHealth(bool gainLife)
         {
-            lives--;
+            if (!gainLife)
+                lives--;
+            else
+                lives++;
             livesCount.text = lives.ToString();
             if (lives == 0)
             {
                 SceneManager.LoadScene("YouDied");
             }
 
-            Debug.Log("Vidas - HandleHealth: " + lives.ToString());
         }
 
         public void HandleFall()
@@ -278,7 +284,6 @@ namespace PlayerScripts
             {
                 SceneManager.LoadScene("YouDied");
             }
-            rb.transform.position = initSpawn;
         }
 
     
