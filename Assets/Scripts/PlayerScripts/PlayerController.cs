@@ -284,6 +284,8 @@ namespace PlayerScripts
             {
                 SceneManager.LoadScene("YouDied");
             }
+
+            rb.position = initSpawn;
         }
 
     
