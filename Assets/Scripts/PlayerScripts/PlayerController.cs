@@ -37,6 +37,8 @@ namespace PlayerScripts
         public Vector2 initSpawn;
         public bool gemActive = false;
 
+        public bool facingRight;
+
         public float playerScale = 1f;
     
         [SerializeField]
@@ -170,11 +172,13 @@ namespace PlayerScripts
        
             else if (hDirection < 0)
             {
+                facingRight = false;
                 rb.velocity = new Vector2(-runningSpeed, rb.velocity.y );
                 transform.localScale = new Vector2(-playerScale, playerScale);
             }
-            else 
+            else
             {
+                facingRight = true;
                 rb.velocity = new Vector2(runningSpeed, rb.velocity.y);
                 transform.localScale = new Vector2(playerScale, playerScale);
             }

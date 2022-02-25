@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using NPCControllers;
+using PlayerScripts;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -10,14 +11,26 @@ public class Projectile : MonoBehaviour
 
     [field: SerializeField] private float projectileSpeed = 10f;
 
+    private Vector2 direction;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(SelfDestruct());
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = Vector2.right * projectileSpeed;
+        rb.velocity = direction * projectileSpeed;
+    }
+
+    public void SetDirection(bool goRight)
+    {
+        direction = goRight ? Vector2.right : Vector2.left;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -28,6 +41,14 @@ public class Projectile : MonoBehaviour
             enemy.Die();
         }
         
+        Destroy(gameObject);
+    }
+    
+    IEnumerator SelfDestruct()
+    {
+        if (gameObject == null) 
+            yield break;
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

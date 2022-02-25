@@ -127,6 +127,7 @@ MonoBehaviour:
   lives: 3
   initSpawn: {x: 0, y: 0}
   gemActive: 0
+  facingRight: 0
   playerScale: 1
   cherries: 0
   feetCollider: {fileID: 2458429836246748288}
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1261211672243628898, guid: 586465d5f74ba0b4aae4a297c8d0c5b3, type: 3}
+  playerController: {fileID: 507872904859398951}
 --- !u!82 &1305760938
 AudioSource:
   m_ObjectHideFlags: 0
