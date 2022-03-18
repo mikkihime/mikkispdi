@@ -5,53 +5,56 @@ using NPCControllers;
 using PlayerScripts;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace PlayerScripts
 {
-    protected Rigidbody2D rb;
-
-    [field: SerializeField] protected float projectileSpeed = 10f;
-    
-    [field: SerializeField] protected float killTime = 1f;
-
-
-    protected Vector2 direction;
-
-    protected void Awake()
+    public class Projectile : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        protected Rigidbody2D rb;
 
-    protected void Start()
-    {
-        StartCoroutine(SelfDestruct());
-    }
+        [field: SerializeField] protected float projectileSpeed = 10f;
 
-    protected virtual void FixedUpdate()
-    {
-        rb.velocity = direction * projectileSpeed;
-    }
+        [field: SerializeField] protected float killTime = 1f;
 
-    public virtual void SetDirection(bool goRight)
-    {
-        direction = goRight ? Vector2.right : Vector2.left;
-    }
 
-    protected virtual void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Enemy")
+        protected Vector2 direction;
+
+        protected void Awake()
         {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.Die();
+            rb = GetComponent<Rigidbody2D>();
         }
-        
-        Destroy(gameObject);
-    }
-    
-    IEnumerator SelfDestruct()
-    {
-        if (gameObject == null) 
-            yield break;
-        yield return new WaitForSeconds(killTime);
-        Destroy(gameObject);
+
+        protected void Start()
+        {
+            StartCoroutine(SelfDestruct());
+        }
+
+        protected virtual void FixedUpdate()
+        {
+            rb.velocity = direction * projectileSpeed;
+        }
+
+        public virtual void SetDirection(bool goRight)
+        {
+            direction = goRight ? Vector2.right : Vector2.left;
+        }
+
+        protected virtual void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.tag == "Enemy")
+            {
+                Enemy enemy = other.gameObject.GetComponent<Enemy>();
+                enemy.Die();
+            }
+
+            Destroy(gameObject);
+        }
+
+        IEnumerator SelfDestruct()
+        {
+            if (gameObject == null)
+                yield break;
+            yield return new WaitForSeconds(killTime);
+            Destroy(gameObject);
+        }
     }
 }
