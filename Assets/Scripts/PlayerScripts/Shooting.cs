@@ -7,14 +7,23 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    private enum ProjectileType
+    {
+        standard,
+        bouncy
+    }
     private Transform shooter;
 
     private bool cooldown = false;
     
     [field: SerializeField]
-    private Projectile projectile;
+    private Projectile StandardProjectile;
 
-    [field: SerializeField] private PlayerController playerController;
+    [field: SerializeField]
+    private Projectile BouncyProjectile;
+
+    [field: SerializeField]
+    private PlayerController playerController;
 
     private void Awake()
     {
@@ -30,15 +39,21 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && cooldown == false)
         {
-            Shoot();
+            Shoot(ProjectileType.standard);
+            StartCoroutine(ShootingCooldown());
+        }
+        
+        if (Input.GetButtonDown("Fire2") && cooldown == false)
+        {
+            Shoot(ProjectileType.bouncy);
             StartCoroutine(ShootingCooldown());
         }
     }
 
-    void Shoot()
+    void Shoot(ProjectileType projectileType)
     {
         Vector2 shooterPosition = new Vector2(shooter.position.x, shooter.position.y);
-        Instantiate(projectile, shooterPosition, quaternion.identity).SetDirection(playerController.facingRight);
+        Instantiate(projectileType == ProjectileType.bouncy? BouncyProjectile : StandardProjectile, shooterPosition, quaternion.identity).SetDirection(playerController.facingRight);
     }
 
     IEnumerator ShootingCooldown()

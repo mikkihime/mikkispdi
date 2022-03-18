@@ -7,33 +7,36 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
-    [field: SerializeField] private float projectileSpeed = 10f;
+    [field: SerializeField] protected float projectileSpeed = 10f;
+    
+    [field: SerializeField] protected float killTime = 1f;
 
-    private Vector2 direction;
 
-    private void Awake()
+    protected Vector2 direction;
+
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected void Start()
     {
         StartCoroutine(SelfDestruct());
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         rb.velocity = direction * projectileSpeed;
     }
 
-    public void SetDirection(bool goRight)
+    public virtual void SetDirection(bool goRight)
     {
         direction = goRight ? Vector2.right : Vector2.left;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
@@ -48,7 +51,7 @@ public class Projectile : MonoBehaviour
     {
         if (gameObject == null) 
             yield break;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(killTime);
         Destroy(gameObject);
     }
 }
