@@ -105,7 +105,13 @@ namespace PlayerScripts
                 cherriesCount.text = cherries.ToString();
                 SoundFx(Sfx.Coin);
             }
-        
+
+            if (collision.tag == "SpikesAndObstacles")
+            {
+                HandleHealth(false);
+                SoundFx(Sfx.Hurt);
+                StartCoroutine(HurtCoroutine(collision.gameObject));
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -128,15 +134,15 @@ namespace PlayerScripts
                     print("vai doer");
                     HandleHealth(false);
                     SoundFx(Sfx.Hurt);
-                    StartCoroutine(HurtCoroutine(other));
+                    StartCoroutine(HurtCoroutine(other.gameObject));
                 }
             }
         }
 
-        private IEnumerator HurtCoroutine(Collision2D other)
+        private IEnumerator HurtCoroutine(GameObject other)
         {
             state = State.Hurt;
-            if (other.gameObject.transform.position.x > transform.position.x)
+            if (other.transform.position.x > transform.position.x)
             {
                 //enemy is to the right, so  take damage and move left
                 rb.velocity = (new Vector2(-hurtForce,hurtForce/2));
