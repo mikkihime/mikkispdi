@@ -1,5 +1,6 @@
 using System.Collections;
 using NPCControllers;
+using SaveAndLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,7 +36,8 @@ namespace PlayerScripts
         private AudioSource playerAudio;
         public int lives = 3;
         public Vector2 initSpawn;
-        public bool gemActive = false;
+        
+        public bool invincible = false;
 
         public bool facingRight;
 
@@ -68,6 +70,9 @@ namespace PlayerScripts
 
         [SerializeField] 
         private AudioClip[] sounds;
+
+        [SerializeField] 
+        private SaveInfo saveInfo;
     
     
 
@@ -76,12 +81,16 @@ namespace PlayerScripts
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             collider = GetComponent<Collider2D>();
+            
+            if (saveInfo.LoadGame() == false)
+                initSpawn = GetComponent<Rigidbody2D>().transform.position;
+            
             cherriesCount.text = cherries.ToString();
             livesCount.text = lives.ToString();
             sprite = GetComponent<SpriteRenderer>();
             playerAudio = GetComponent<AudioSource>();
-            initSpawn = GetComponent<Rigidbody2D>().transform.position;
-
+            
+            rb.position = initSpawn;
         }
 
         private void Update()
@@ -108,6 +117,7 @@ namespace PlayerScripts
 
             if (collision.tag == "SpikesAndObstacles")
             {
+                if (invincible != false) return;
                 HandleHealth(false);
                 SoundFx(Sfx.Hurt);
                 StartCoroutine(HurtCoroutine(collision.gameObject));
@@ -120,12 +130,12 @@ namespace PlayerScripts
             {
                 Enemy enemy = other.gameObject.GetComponent<Enemy>();
                 print("Encostou no inimigo");
-                if (state == State.Falling || gemActive)
+                if (state == State.Falling || invincible)
                 {
                     print("matou");
                     SoundFx(Sfx.Kill);
                     enemy.Die();
-                    if (!gemActive)
+                    if (!invincible)
                         Jump(); 
                 }
             
@@ -141,6 +151,7 @@ namespace PlayerScripts
 
         private IEnumerator HurtCoroutine(GameObject other)
         {
+            invincible = true;
             state = State.Hurt;
             if (other.transform.position.x > transform.position.x)
             {
@@ -166,6 +177,9 @@ namespace PlayerScripts
             }
 
             state = State.Idle;
+
+            invincible = false;
+            yield return new WaitForSeconds(1f);
         }
         private void Movement()
         {

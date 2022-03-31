@@ -347,6 +347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2732014438726539831, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
+      propertyPath: saveInfo
+      value: 
+      objectReference: {fileID: 1696873532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
 --- !u!4 &207491462 stripped
@@ -1091,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2732014438726539831, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
+      propertyPath: saveInfo
+      value: 
+      objectReference: {fileID: 1696873532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
 --- !u!1 &905840796
@@ -3721,6 +3729,7 @@ GameObject:
   - component: {fileID: 1696873531}
   - component: {fileID: 1696873530}
   - component: {fileID: 1696873529}
+  - component: {fileID: 1696873532}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3776,6 +3785,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1696873532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696873528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e52e90f77c6154e9e73ca684bd67a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1305760935}
 --- !u!4 &1703017211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2732014438726539828, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
@@ -4258,6 +4280,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
+      propertyPath: saveInfo
+      value: 
+      objectReference: {fileID: 1696873532}
+    - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: livesCount
       value: 
       objectReference: {fileID: 306893552}
@@ -4447,6 +4473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2732014438726539831, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
+      propertyPath: saveInfo
+      value: 
+      objectReference: {fileID: 1696873532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d458b72d4002d47b70abe3c21087ff, type: 3}
 --- !u!1001 &3527934799552056932

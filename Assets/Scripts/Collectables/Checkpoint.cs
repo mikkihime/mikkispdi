@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PlayerScripts;
+using SaveAndLoad;
 using UnityEngine;
 
 
@@ -9,6 +10,8 @@ namespace Collectables
     public class Checkpoint : MonoBehaviour
     {
         private Collider2D collider;
+
+        [field: SerializeField] private SaveInfo saveInfo;
 
         void Start()
         {
@@ -23,6 +26,7 @@ namespace Collectables
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
                 player.initSpawn = collider.transform.position + Vector3.up*4;
                 collider.enabled = false;
+                saveInfo.SaveGame(player.lives, player.cherries, player.initSpawn.x, player.initSpawn.y);
             }
         }
     }

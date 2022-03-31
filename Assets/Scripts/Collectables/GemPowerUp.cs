@@ -20,7 +20,7 @@ namespace Collectables
 
         private IEnumerator GemDuration(PlayerController player)
         {
-            player.gemActive = true;
+            player.invincible = true;
             Collect();
             player.playerScale *= 1.5f;
             player.runningSpeed = 14f;
@@ -29,7 +29,7 @@ namespace Collectables
             player.playerScale /= 1.5f;
             player.runningSpeed = 7f;
             player.sprite.material.color = Color.white;
-            player.gemActive = false;
+            player.invincible = false;
             Destroy(gameObject);
         }
     }
