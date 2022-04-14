@@ -6,6 +6,15 @@ namespace SaveAndLoad
 {
    public class SaveInfo : MonoBehaviour
    {
+      [field: SerializeField] private GameObject[] cherries;
+      
+      [field: SerializeField] private GameObject[] gems;
+
+      [field: SerializeField] private GameObject[] checkpoints;
+      
+      [field: SerializeField] private GameObject[] enemies;
+
+      
       private int playerLives;
    
       private int playerCherries;
@@ -14,17 +23,9 @@ namespace SaveAndLoad
    
       [field: SerializeField] private PlayerController player;
 
-    public void SaveGame(int lives, int cherries, float x, float y)
+    public void SaveGame(PlayerController playerData)
       {
-         playerLives = lives;
-         playerCherries = cherries;
-         playerCheckpoint.x = x;
-         playerCheckpoint.y = y;
-         
-         PlayerPrefs.SetInt("PlayerLives", playerLives);
-         PlayerPrefs.SetInt("PlayerCherries", playerCherries);
-         PlayerPrefs.SetFloat("CheckpointX", x);
-         PlayerPrefs.SetFloat("CheckpointY", y);
+         SavePlayerData(playerData);
          
          PlayerPrefs.Save();
          Debug.Log("Game data saved!");
@@ -44,7 +45,9 @@ namespace SaveAndLoad
             player.lives = playerLives;
             player.cherries = playerCherries;
             player.initSpawn = playerCheckpoint;
-
+            
+            Debug.Log($" !Mikki é muito esperta");
+            
             return true;
          }
          else
@@ -60,6 +63,19 @@ namespace SaveAndLoad
          PlayerPrefs.DeleteAll();
          
          Debug.Log("Data reset complete");
+      }
+
+      private void SavePlayerData(PlayerController playerData)
+      {
+         playerLives = playerData.lives;
+         playerCherries = playerData.cherries;
+         playerCheckpoint = playerData.transform.position;
+         
+         PlayerPrefs.SetInt("PlayerLives", playerLives);
+         PlayerPrefs.SetInt("PlayerCherries", playerCherries);
+         PlayerPrefs.SetFloat("CheckpointX", playerCheckpoint.x);
+         PlayerPrefs.SetFloat("CheckpointY", playerCheckpoint.y);
+         
       }
    }
 }

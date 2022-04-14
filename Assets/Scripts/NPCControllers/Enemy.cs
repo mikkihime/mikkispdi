@@ -10,9 +10,15 @@ namespace NPCControllers
         protected Animator anim;
         protected Rigidbody2D rb;
         protected Collider2D collider;
+        protected bool defeated = false;
 
         protected virtual void Start()
         {
+            if (defeated)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             anim = GetComponent<Animator>();
             collider = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
@@ -24,6 +30,7 @@ namespace NPCControllers
             rb.bodyType = RigidbodyType2D.Static;
             collider.enabled = false;
             rb.gravityScale = 0;
+            defeated = true;
             anim.SetTrigger("Death");
         }
 
