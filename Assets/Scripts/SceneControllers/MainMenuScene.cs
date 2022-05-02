@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using SaveAndLoad;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +10,22 @@ namespace SceneControllers
     {
         
         [field: SerializeField]
-        private Button StartGameButton { get; set; }
+        private Button LoadGameButton { get; set; }
+        
+        [field: SerializeField]
+        private Button NewGameButton { get; set; }
         
         [field: SerializeField]
         private Button QuitGameButton { get; set; }
+        
+        [field: SerializeField]
+        private SaveInfo saveInfo { get; set; }
 
         private void Awake()
         {
-            StartGameButton.onClick.AddListener(() => PlayLevel("Level01"));
+            LoadGameButton.onClick.AddListener(() => PlayLevel("Level01"));
+            
+            NewGameButton.onClick.AddListener(() => saveInfo.ResetData());
 
             QuitGameButton.onClick.AddListener(QuitGame);
         }

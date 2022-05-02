@@ -1,13 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Collectables
 {
-    public class PowerUp : MonoBehaviour
+    public class Cherries : MonoBehaviour
     {
         protected Collider2D collider;
         protected Renderer renderer;
         public bool collected = false;
-    
+
         protected virtual void Start()
         {
             if (collected)
@@ -15,6 +17,7 @@ namespace Collectables
                 gameObject.SetActive(false);
                 return;
             }
+
             collider = GetComponent<Collider2D>();
             renderer = GetComponent<SpriteRenderer>();
         }
@@ -23,6 +26,7 @@ namespace Collectables
         {
             collider.enabled = false;
             renderer.enabled = false;
+            gameObject.SetActive(false);
             collected = true;
         }
     }

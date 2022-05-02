@@ -10,7 +10,7 @@ namespace Collectables
     public class Checkpoint : MonoBehaviour
     {
         private Collider2D collider;
-        private bool passed = false;
+        public bool passed = false;
 
         [field: SerializeField] private SaveInfo saveInfo;
 
@@ -27,6 +27,7 @@ namespace Collectables
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
                 player.initSpawn = collider.transform.position + Vector3.up*4;
                 collider.enabled = false;
+                passed = true;
                 saveInfo.SaveGame(player);
             }
         }

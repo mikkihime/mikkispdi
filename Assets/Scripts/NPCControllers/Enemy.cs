@@ -10,7 +10,7 @@ namespace NPCControllers
         protected Animator anim;
         protected Rigidbody2D rb;
         protected Collider2D collider;
-        protected bool defeated = false;
+        public bool defeated = false;
 
         protected virtual void Start()
         {
