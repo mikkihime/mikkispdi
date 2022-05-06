@@ -63,13 +63,13 @@ namespace SaveAndLoad
             }
             else
             {
-                Debug.LogError("There is no save data!");
+                Debug.LogWarning("There is no save data!");
 
                 return false;
             }
         }
 
-        public void LoadPlayerData()
+        private void LoadPlayerData()
         {
             playerLives = PlayerPrefs.GetInt("PlayerLives");
             playerCherries = PlayerPrefs.GetInt("PlayerCherries");

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using SaveAndLoad;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,9 +23,15 @@ namespace SceneControllers
         {
             LoadGameButton.onClick.AddListener(() => PlayLevel("Level01"));
             
-            NewGameButton.onClick.AddListener(() => saveInfo.ResetData());
+            NewGameButton.onClick.AddListener(NewGame);
 
             QuitGameButton.onClick.AddListener(QuitGame);
+        }
+
+        private void NewGame()
+        {
+            saveInfo.ResetData();
+            PlayLevel("Level01");
         }
 
     }
