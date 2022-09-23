@@ -1,3 +1,4 @@
+using System;
 using SaveAndLoad;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,13 @@ namespace SceneControllers
         private Button QuitGameButton { get; set; }
         
         [field: SerializeField]
-        private SaveInfo saveInfo { get; set; }
+        private SaveInfo SaveInfo { get; set; }
+        
+        [field: SerializeField]
+        private Texture2D CursorArrow { get; set; }
+        
+        [field: SerializeField]
+        private GameObject CursorParticles { get; set; }
 
         private void Awake()
         {
@@ -28,9 +35,20 @@ namespace SceneControllers
             QuitGameButton.onClick.AddListener(QuitGame);
         }
 
+        private void Start()
+        {
+            Cursor.SetCursor(CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        }
+
+        private void Update()
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            CursorParticles.transform.position = new Vector3(cursorPos.x, cursorPos.y);
+        }
+
         private void NewGame()
         {
-            saveInfo.ResetData();
+            SaveInfo.ResetData();
             PlayLevel("Level01");
         }
 
