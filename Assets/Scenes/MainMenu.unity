@@ -586,7 +586,7 @@ MonoBehaviour:
   <QuitGameButton>k__BackingField: {fileID: 1306764330}
   <SaveInfo>k__BackingField: {fileID: 944131186}
   <CursorArrow>k__BackingField: {fileID: 2800000, guid: c6ee49ab898bfa1419458d4fda7fbc1f, type: 3}
-  <CursorParticles>k__BackingField: {fileID: 963343777}
+  <CursorParticles>k__BackingField: {fileID: 1545065548}
 --- !u!4 &944131185
 Transform:
   m_ObjectHideFlags: 0

@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: -2063899371
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.5687911, g: 0.21176468, b: 0.8784314, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a2d68081d156f704bb974b65c4ba11c6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 750
   killTime: 3
+  <FireballSprite>k__BackingField: {fileID: 1261211671876004845}
 --- !u!50 &3132829831500098805
 Rigidbody2D:
   serializedVersion: 4

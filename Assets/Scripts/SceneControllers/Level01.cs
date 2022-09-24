@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +21,14 @@ public class Level01 : SceneLoaderScript
     {
         ResumeGameButton.onClick.AddListener(Resume);
             
-        QuitGameButton.onClick.AddListener(MainMenu);
+        QuitGameButton.onClick.AddListener(QuitToMenu);
 
         ExitGameButton.onClick.AddListener(QuitGame);
+    }
+
+    private void Start()
+    {
+        Cursor.visible = false;
     }
     private void Update()
     {
@@ -41,6 +45,7 @@ public class Level01 : SceneLoaderScript
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        Cursor.visible = false;
     }
 
     private void Pause()
@@ -48,5 +53,13 @@ public class Level01 : SceneLoaderScript
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        Cursor.visible = true;
+    }
+
+    private void QuitToMenu()
+    {
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        MainMenu();
     }
 }

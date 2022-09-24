@@ -14,7 +14,8 @@ namespace PlayerScripts
         [field: SerializeField] protected float projectileSpeed = 10f;
 
         [field: SerializeField] protected float killTime = 1f;
-
+        
+        [field: SerializeField] protected SpriteRenderer FireballSprite { get; set; }
 
         protected Vector2 direction;
 
@@ -36,6 +37,7 @@ namespace PlayerScripts
         public virtual void SetDirection(bool goRight)
         {
             direction = goRight ? Vector2.right : Vector2.left;
+            FireballSprite.flipY = !goRight;
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D other)

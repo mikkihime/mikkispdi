@@ -24,7 +24,7 @@ namespace SceneControllers
         private Texture2D CursorArrow { get; set; }
         
         [field: SerializeField]
-        private GameObject CursorParticles { get; set; }
+        private ParticleSystem CursorParticles { get; set; }
 
         private void Awake()
         {
@@ -38,6 +38,7 @@ namespace SceneControllers
         private void Start()
         {
             Cursor.SetCursor(CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+            CursorParticles.Play();
         }
 
         private void Update()
