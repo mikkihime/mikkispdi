@@ -55,3 +55,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3705880557
     locked: 0
+  - name: UI
+    uniqueID: 1511475987
+    locked: 0
+  - name: NaFrenteDeTudo
+    uniqueID: 566648281
+    locked: 0

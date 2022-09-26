@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 377958600}
   - component: {fileID: 377958599}
   - component: {fileID: 377958598}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LoadGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 389154925}
   - component: {fileID: 389154927}
   - component: {fileID: 389154926}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 432248579}
   - component: {fileID: 432248581}
   - component: {fileID: 432248580}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 679877590}
   - component: {fileID: 679877592}
   - component: {fileID: 679877591}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 1209115937}
   - component: {fileID: 1209115936}
   - component: {fileID: 1209115935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 138386700}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -728,7 +728,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1511475987
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1209115938
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 1306764332}
   - component: {fileID: 1306764331}
   - component: {fileID: 1306764330}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,9 +946,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -589086739
-  m_SortingLayer: 3
-  m_SortingOrder: 10
+  m_SortingLayerID: 566648281
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5692,7 +5692,7 @@ GameObject:
   - component: {fileID: 1606719439}
   - component: {fileID: 1606719438}
   - component: {fileID: 1606719437}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5812,7 +5812,7 @@ GameObject:
   - component: {fileID: 1843511743}
   - component: {fileID: 1843511745}
   - component: {fileID: 1843511744}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5893,7 +5893,7 @@ GameObject:
   - component: {fileID: 1870609485}
   - component: {fileID: 1870609487}
   - component: {fileID: 1870609486}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5972,7 +5972,7 @@ GameObject:
   - component: {fileID: 1934430621}
   - component: {fileID: 1934430623}
   - component: {fileID: 1934430622}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6053,7 +6053,7 @@ GameObject:
   - component: {fileID: 2080246166}
   - component: {fileID: 2080246168}
   - component: {fileID: 2080246167}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TitleHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

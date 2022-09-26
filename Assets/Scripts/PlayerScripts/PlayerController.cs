@@ -38,6 +38,7 @@ namespace PlayerScripts
         public Vector2 initSpawn;
         
         public bool invincible = false;
+        public bool invincibleGem = false;
 
         public bool facingRight;
 
@@ -73,9 +74,16 @@ namespace PlayerScripts
 
         [SerializeField] 
         private SaveInfo saveInfo;
+        
+        [field: SerializeField]
+        private RainbowEffect Rainbow { get; set; }
+        
+        [field: SerializeField]
+        private ParticleSystem Trail { get; set; }
+        
+        [field: SerializeField]
+        private float RateOverTime { get; set; }
     
-    
-
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -99,10 +107,12 @@ namespace PlayerScripts
             {
                 Movement();
             }
+            
             AnimationStates();
             anim.SetInteger("state", (int)state);
-        
-
+            
+            if (invincibleGem)
+                Rainbow.Rainbow();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -219,7 +229,6 @@ namespace PlayerScripts
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             state = State.Jumping;
-        
         }
 
         private void AnimationStates()
@@ -254,7 +263,13 @@ namespace PlayerScripts
             {
                 state = State.Idle;
             }
-        
+
+            var emission = Trail.emission;
+            if (state == State.Running)
+                emission.rateOverTimeMultiplier = RateOverTime;
+            else
+                emission.rateOverTimeMultiplier = 0;
+
         }
 
         public void SoundFx(Sfx sound)
@@ -312,6 +327,10 @@ namespace PlayerScripts
             rb.position = initSpawn;
         }
 
+        public void KillRainbow()
+        {
+            Rainbow.BackToOriginal();
+        }
     
     }
 }

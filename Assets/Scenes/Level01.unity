@@ -213,6 +213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273787cca49f73442ba88d6111bb646c, type: 3}
+--- !u!212 &130749882 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 507872904859398955, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
+  m_PrefabInstance: {fileID: 507872904930566830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &172595138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,6 +5687,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 130749882}
+    - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: saveInfo
       value: 
       objectReference: {fileID: 1696873532}
@@ -5697,6 +5706,10 @@ PrefabInstance:
       propertyPath: cherriesCount
       value: 
       objectReference: {fileID: 364971592}
+    - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
+      propertyPath: <RateOverDistance>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 507872904859398952, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: m_RootOrder
       value: 2
