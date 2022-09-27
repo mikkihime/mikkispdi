@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using PlayerScripts;
+using SceneControllers;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -37,13 +38,13 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && cooldown == false)
+        if (Input.GetButtonDown("Fire1") && !cooldown && !Level01.gameIsPaused)
         {
             Shoot(ProjectileType.standard);
             StartCoroutine(ShootingCooldown());
         }
         
-        if (Input.GetButtonDown("Fire2") && cooldown == false)
+        if (Input.GetButtonDown("Fire2") && !cooldown && !Level01.gameIsPaused)
         {
             Shoot(ProjectileType.bouncy);
             StartCoroutine(ShootingCooldown());

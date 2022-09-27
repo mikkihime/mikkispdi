@@ -1,65 +1,68 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level01 : SceneLoaderScript
+namespace SceneControllers
 {
-    [field: SerializeField]
-    private GameObject PauseMenuUI { get; set; }
-    
-    public static bool gameIsPaused = false;
-
-    [field: SerializeField]
-    private Button ResumeGameButton { get; set; }
-        
-    [field: SerializeField]
-    private Button QuitGameButton { get; set; }
-        
-    [field: SerializeField]
-    private Button ExitGameButton { get; set; }
-    
-    private void Awake()
+    public class Level01 : SceneLoaderScript
     {
-        ResumeGameButton.onClick.AddListener(Resume);
+        public static bool gameIsPaused = false;
+
+        [field: SerializeField]
+        private Button ResumeGameButton { get; set; }
+        
+        [field: SerializeField]
+        private Button QuitGameButton { get; set; }
+        
+        [field: SerializeField]
+        private Button ExitGameButton { get; set; }
+        
+        [field: SerializeField]
+        private PauseUIAnim PauseUIAnim { get; set; }
+    
+        private void Awake()
+        {
+            ResumeGameButton.onClick.AddListener(Resume);
             
-        QuitGameButton.onClick.AddListener(QuitToMenu);
+            QuitGameButton.onClick.AddListener(QuitToMenu);
 
-        ExitGameButton.onClick.AddListener(QuitGame);
-    }
+            ExitGameButton.onClick.AddListener(QuitGame);
+        }
 
-    private void Start()
-    {
-        Cursor.visible = false;
-    }
-    private void Update()
-    {
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        private void Start()
+        {
+            Cursor.visible = false;
+            PauseUIAnim.Setup();
+        }
+        private void Update()
+        {
+            if (!Input.GetKeyDown(KeyCode.Escape)) return;
         
-        if (gameIsPaused)
-            Resume();
-        else
-            Pause();
-    }
+            if (gameIsPaused)
+                Resume();
+            else
+                Pause();
+        }
 
-    private void Resume()
-    {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-        Cursor.visible = false;
-    }
+        private void Resume()
+        {
+            Time.timeScale = 1f;
+            PauseUIAnim.HidePauseAnimation();
+            gameIsPaused = false;
+            Cursor.visible = false;
+        }
 
-    private void Pause()
-    {
-        PauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-        Cursor.visible = true;
-    }
+        private void Pause()
+        {
+            PauseUIAnim.ShowPauseAnimation(() => Time.timeScale = 0);
+            gameIsPaused = true;
+            Cursor.visible = true;
+        }
 
-    private void QuitToMenu()
-    {
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-        MainMenu();
+        private void QuitToMenu()
+        {
+            Time.timeScale = 1f;
+            gameIsPaused = false;
+            MainMenu();
+        }
     }
 }
