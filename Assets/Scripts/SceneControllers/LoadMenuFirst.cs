@@ -1,15 +1,17 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-[InitializeOnLoad]
-public class LoadMenuFirst : MonoBehaviour
+namespace SceneControllers
 {
-    static LoadMenuFirst()
+    [InitializeOnLoad]
+    public class LoadMenuFirst : MonoBehaviour
     {
-        string scenePath = "Assets/Scenes/MainMenu.unity";
-        SceneAsset cenaInicial = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
-        EditorSceneManager.playModeStartScene = cenaInicial;
+        static LoadMenuFirst()
+        {
+            string scenePath = "Assets/Scenes/MainMenu.unity";
+            SceneAsset cenaInicial = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
+            EditorSceneManager.playModeStartScene = cenaInicial;
+        }
     }
 }
