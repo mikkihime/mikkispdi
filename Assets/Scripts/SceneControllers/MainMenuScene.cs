@@ -18,6 +18,9 @@ namespace SceneControllers
         private Button QuitGameButton { get; set; }
         
         [field: SerializeField]
+        private Button ShopButton { get; set; }
+        
+        [field: SerializeField]
         private SaveInfo SaveInfo { get; set; }
         
         [field: SerializeField]
@@ -29,7 +32,9 @@ namespace SceneControllers
         private void Awake()
         {
             LoadGameButton.onClick.AddListener(() => PlayLevel("Level01"));
-            
+
+            ShopButton.onClick.AddListener(() => PlayLevel("Shop"));
+
             NewGameButton.onClick.AddListener(NewGame);
 
             QuitGameButton.onClick.AddListener(QuitGame);

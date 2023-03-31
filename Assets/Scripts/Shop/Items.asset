@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f859a36260f1547a5294be8706cb72, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  <ItemDataList>k__BackingField:
+  - <ItemName>k__BackingField: Wizard Hat
+    <ItemDescription>k__BackingField: Hat of the legendary wizard fox, Merlin, who
+      singlehandedly united the kingdom of Foxelot. Grants you magical powers.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: 5087bdcc637973d41abbd18802fb23d3, type: 3}
+    <Price>k__BackingField: 25
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Extra Life
+    <ItemDescription>k__BackingField: A magical heart-shaped gem, crafted from the
+      volcano of Fairy Island. Grants you an additional life slot.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: 222d62d87db5931498bb85845842b0d3, type: 3}
+    <Price>k__BackingField: 80
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Magic Egg
+    <ItemDescription>k__BackingField: I wonder what will come out of that egg...
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: e0c7d5a920e98fd47a926292adc0bec7, type: 3}
+    <Price>k__BackingField: 30
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Wizard Sraff
+    <ItemDescription>k__BackingField: Staff of the legendary wizard fox, Merlin,
+      who singlehandedly united the kingdom of Foxelot. Enhances your magical powers.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: 3aa1cb26afcdc244bb3a95c193575ecb, type: 3}
+    <Price>k__BackingField: 25
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Watering Can
+    <ItemDescription>k__BackingField: A sturdy watering can. Allows you to plant
+      Cherry trees.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: 8dfb7eb4494cbe14eabf0fda5056d27d, type: 3}
+    <Price>k__BackingField: 20
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Pickaxe
+    <ItemDescription>k__BackingField: A strong pickaxe. Allows you to mine for gold,
+      which can be exchanged for Cherries.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: 45cfe68fb47a8514f96477d0fb432286, type: 3}
+    <Price>k__BackingField: 30
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Meat
+    <ItemDescription>k__BackingField: Delicious cooked meat. This savoury meal grants
+      you temporary extra strength.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: eab87f10d2afa594c92ed3d29451b618, type: 3}
+    <Price>k__BackingField: 8
+    <Sold>k__BackingField: 0
+  - <ItemName>k__BackingField: Potion
+    <ItemDescription>k__BackingField: A custom brewed potion, made by the island's
+      witch. Makes you invincible for a shor time.
+    <ItemSprite>k__BackingField: {fileID: 21300000, guid: db005d11213e5da47b9769c2e6c56eee, type: 3}
+    <Price>k__BackingField: 15
+    <Sold>k__BackingField: 0

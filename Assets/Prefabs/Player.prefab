@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4729d5afde4d3b48b4ffe4c15121541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 507872904859398955}
   lives: 3
   initSpawn: {x: 0, y: 0}
   invincible: 0

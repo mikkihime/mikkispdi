@@ -26,7 +26,7 @@ namespace SaveAndLoad
 
         private int playerLives;
 
-        private int playerCherries;
+        public int playerCherries;
 
         private Vector2 playerCheckpoint;
 
