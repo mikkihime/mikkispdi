@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 306893552}
   m_Layer: 5
   m_Name: LivesVariable
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 364971592}
   m_Layer: 5
   m_Name: CherriesVariable
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -472,8 +472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 130, y: 130}
+  m_AnchoredPosition: {x: -92.5, y: 0}
+  m_SizeDelta: {x: 185, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364971592
 MonoBehaviour:
@@ -497,7 +497,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1c7fb698de8c7fc49af181615288a392, type: 3}
-    m_FontSize: 75
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -508,7 +508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 100
 --- !u!222 &364971593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 391135141}
   m_Layer: 5
   m_Name: PauseText
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 423576100}
   m_Layer: 5
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 549959518}
   m_Layer: 5
   m_Name: ExitGame
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 605033333}
   m_Layer: 5
   m_Name: Frame (1)
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1411,7 +1411,7 @@ GameObject:
   - component: {fileID: 683059687}
   m_Layer: 5
   m_Name: Buttons
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1456,7 +1456,7 @@ GameObject:
   - component: {fileID: 698346412}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 752823454}
   m_Layer: 5
   m_Name: LivesHolder
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 770030008}
   m_Layer: 5
   m_Name: PauseButtonHolder
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 794904564}
   m_Layer: 5
   m_Name: PauseIcon
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 1096262896}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 1149035208}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4276,7 +4276,7 @@ GameObject:
   - component: {fileID: 1230866232}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4485,7 +4485,7 @@ GameObject:
   - component: {fileID: 1503235871}
   m_Layer: 5
   m_Name: PlayerUI
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4625,7 +4625,7 @@ GameObject:
   - component: {fileID: 1560858780}
   m_Layer: 5
   m_Name: Resume
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4779,7 +4779,7 @@ GameObject:
   - component: {fileID: 1585842706}
   m_Layer: 5
   m_Name: ContentHolder
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 1616652037}
   m_Layer: 5
   m_Name: CherriesHolder
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4938,7 +4938,7 @@ GameObject:
   - component: {fileID: 1619738135}
   m_Layer: 5
   m_Name: Cherry
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5011,7 +5011,7 @@ GameObject:
   - component: {fileID: 1645827754}
   m_Layer: 5
   m_Name: PauseUI
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5047,7 +5047,7 @@ GameObject:
   - component: {fileID: 1665731076}
   m_Layer: 5
   m_Name: TitleHolder
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5236,6 +5236,7 @@ MonoBehaviour:
   - {fileID: 1447850833}
   - {fileID: 1505528252}
   - {fileID: 1813617923}
+  playerCherries: 0
   player: {fileID: 1305760935}
 --- !u!4 &1703017211 stripped
 Transform:
@@ -5355,7 +5356,7 @@ GameObject:
   - component: {fileID: 1848470621}
   m_Layer: 5
   m_Name: QuitToMenu
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5688,7 +5689,7 @@ GameObject:
   - component: {fileID: 2052835061}
   m_Layer: 5
   m_Name: Overlay
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5775,7 +5776,7 @@ GameObject:
   - component: {fileID: 2057905658}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIElements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

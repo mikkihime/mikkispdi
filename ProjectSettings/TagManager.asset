@@ -9,6 +9,7 @@ TagManager:
   - Gem
   - Projectile
   - SpikesAndObstacles
+  - UIElements
   layers:
   - Default
   - TransparentFX
