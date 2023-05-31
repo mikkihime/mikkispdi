@@ -33,7 +33,8 @@ namespace PlayerScripts
         private Collider2D collider;
         public SpriteRenderer sprite;
         private Sfx soundEffect;
-        private AudioSource playerAudio;
+        [field: SerializeField]
+        private AudioSource PlayerAudio { get; set; }
         public int lives = 3;
         public Vector2 initSpawn;
         
@@ -96,7 +97,7 @@ namespace PlayerScripts
             cherriesCount.text = cherries.ToString();
             livesCount.text = lives.ToString();
             sprite = GetComponent<SpriteRenderer>();
-            playerAudio = GetComponent<AudioSource>();
+            //PlayerAudio = GetComponent<AudioSource>();
             
             rb.position = initSpawn;
         }
@@ -277,24 +278,24 @@ namespace PlayerScripts
             switch (sound)
             {
                 case Sfx.Footstep:
-                    playerAudio.clip = sounds[0];
-                    playerAudio.Play();
+                    PlayerAudio.clip = sounds[0];
+                    PlayerAudio.Play();
                     break;
                 case Sfx.Jump:
-                    playerAudio.clip = sounds[1];
-                    playerAudio.Play();
+                    PlayerAudio.clip = sounds[1];
+                    PlayerAudio.Play();
                     break;
                 case Sfx.Coin:
-                    playerAudio.clip = sounds[2];
-                    playerAudio.Play();
+                    PlayerAudio.clip = sounds[2];
+                    PlayerAudio.Play();
                     break;
                 case Sfx.Hurt:
-                    playerAudio.clip = sounds[3];
-                    playerAudio.Play();
+                    PlayerAudio.clip = sounds[3];
+                    PlayerAudio.Play();
                     break;
                 case Sfx.Kill:
-                    playerAudio.clip = sounds[4];
-                    playerAudio.Play();
+                    PlayerAudio.clip = sounds[4];
+                    PlayerAudio.Play();
                     break;
                 default:
                     return;

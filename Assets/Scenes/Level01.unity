@@ -213,11 +213,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273787cca49f73442ba88d6111bb646c, type: 3}
---- !u!212 &130749882 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 507872904859398955, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-  m_PrefabInstance: {fileID: 507872904930566830}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &172595138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,10 +4254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241ce2f1a9850544ca4b19ac11de660f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PauseUIAnimation>k__BackingField: {fileID: 1187738101}
   <ResumeGameButton>k__BackingField: {fileID: 1560858780}
   <QuitGameButton>k__BackingField: {fileID: 1848470621}
   <ExitGameButton>k__BackingField: {fileID: 549959518}
-  <PauseUIAnim>k__BackingField: {fileID: 1187738101}
 --- !u!1 &1230866230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6043,6 +6038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044d373102eaa7f479a524cf4b032811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PauseUIAnimation>k__BackingField: {fileID: 0}
   nextLevelSceneName: Level02
 --- !u!1001 &507872904930566830
 PrefabInstance:
@@ -6052,10 +6048,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 130749882}
-    - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: saveInfo
       value: 
       objectReference: {fileID: 1696873532}
@@ -6063,10 +6055,6 @@ PrefabInstance:
       propertyPath: livesCount
       value: 
       objectReference: {fileID: 306893552}
-    - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: facingRight
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 507872904859398951, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: cherriesCount
       value: 
@@ -6119,26 +6107,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 507872904859398953, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 507872904859398953, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 507872904859398954, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4705262040376784473, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: BouncyProjectile
-      value: 
-      objectReference: {fileID: 7227232456937144046, guid: 646ec2d01c4501e41ba3f6820a0cb60c, type: 3}
-    - target: {fileID: 4705262040376784473, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
-      propertyPath: StandardProjectile
-      value: 
-      objectReference: {fileID: 1261211672243628898, guid: 586465d5f74ba0b4aae4a297c8d0c5b3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803241628f7874fb2d02dc464cc59a, type: 3}
 --- !u!1001 &2070830345435899036

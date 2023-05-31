@@ -5,8 +5,6 @@ namespace SceneControllers
 {
     public class Level01 : SceneLoaderScript
     {
-        public static bool gameIsPaused = false;
-
         [field: SerializeField]
         private Button ResumeGameButton { get; set; }
         
@@ -15,9 +13,6 @@ namespace SceneControllers
         
         [field: SerializeField]
         private Button ExitGameButton { get; set; }
-        
-        [field: SerializeField]
-        private PauseUIAnim PauseUIAnim { get; set; }
     
         private void Awake()
         {
@@ -28,10 +23,10 @@ namespace SceneControllers
             ExitGameButton.onClick.AddListener(QuitGame);
         }
 
-        private void Start()
+        protected override void Start()
         {
             Cursor.visible = false;
-            PauseUIAnim.Setup();
+            PauseUIAnimation.Setup();
         }
         private void Update()
         {
@@ -42,21 +37,7 @@ namespace SceneControllers
             else
                 Pause();
         }
-
-        private void Resume()
-        {
-            Time.timeScale = 1f;
-            PauseUIAnim.HidePauseAnimation();
-            gameIsPaused = false;
-            Cursor.visible = false;
-        }
-
-        private void Pause()
-        {
-            PauseUIAnim.ShowPauseAnimation(() => Time.timeScale = 0);
-            gameIsPaused = true;
-            Cursor.visible = true;
-        }
+        
 
         private void QuitToMenu()
         {

@@ -104,10 +104,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 3
   m_AngularDrag: 0
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 1abac57ede8adda42a5d478b22a84c0c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -126,11 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 507872904859398955}
+  <PlayerAudio>k__BackingField: {fileID: 1305760938}
   lives: 3
   initSpawn: {x: 0, y: 0}
   invincible: 0
   invincibleGem: 0
-  facingRight: 0
+  facingRight: 1
   playerScale: 1
   cherries: 0
   feetCollider: {fileID: 2458429836246748288}
@@ -199,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fc780e81ceae24d83798500f777278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StandardProjectile: {fileID: 0}
-  BouncyProjectile: {fileID: 0}
+  StandardProjectile: {fileID: 1261211672243628898, guid: 586465d5f74ba0b4aae4a297c8d0c5b3, type: 3}
+  BouncyProjectile: {fileID: 7227232456937144046, guid: 646ec2d01c4501e41ba3f6820a0cb60c, type: 3}
   playerController: {fileID: 507872904859398951}
 --- !u!114 &6277436493952182433
 MonoBehaviour:
